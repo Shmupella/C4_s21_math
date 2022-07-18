@@ -83,8 +83,29 @@ ck_assert_ldouble_lt(fabs((double)res), EPS);
 ck_assert_ldouble_nan(s21_fmod(x1, nan1));
 
 #test fmod6
+ck_assert_ldouble_nan(s21_fmod(x1, 0));
+
 #test fmod7
+ck_assert_ldouble_nan(s21_fmod(inf, 2));
+
 #test fmod8
+long double res = fmod(2.12, inf) - s21_fmod(2.12, inf);
+ck_assert_ldouble_lt(fabs((double)res), EPS);
+
+#test fmod9
+ck_assert_ldouble_nan(s21_fmod(ninf, 2));
+
+#test fmod10
+long double res = fmod(2.12, ninf) - s21_fmod(2.12, ninf);
+ck_assert_ldouble_lt(fabs((double)res), EPS);
+
+#test fmod11
+ck_assert_ldouble_nan(s21_fmod(ninf, ninf));
+
+#test fmod12
+ck_assert_ldouble_nan(s21_fmod(inf, inf));
+
+
 
 #test ceil1
 long double res = ceil(-2.12) - s21_ceil(-2.12);
