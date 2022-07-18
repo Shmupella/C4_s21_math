@@ -120,8 +120,13 @@ long double res = ceil(0) - s21_ceil(0);
 ck_assert_ldouble_lt(fabs((double)res), EPS);
 
 #test ceil4
+ck_assert_ldouble_nan(s21_ceil(nan1));
+
 #test ceil5
+ck_assert_ldouble_infinite(s21_ceil(inf));
+
 #test ceil6
+ck_assert_ldouble_infinite(s21_ceil(ninf));
 
 
 #test floor1
@@ -136,10 +141,14 @@ ck_assert_ldouble_lt(fabs((double)res), EPS);
 long double res = floor(0) - s21_floor(0);
 ck_assert_ldouble_lt(fabs((double)res), EPS);
 
-
 #test floor4
+ck_assert_ldouble_nan(s21_floor(nan1));
+
 #test floor5
+ck_assert_ldouble_infinite(s21_floor(inf));
+
 #test floor6
+ck_assert_ldouble_infinite(s21_floor(ninf));
 
 
 #test exp1
